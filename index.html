@@ -15,6 +15,23 @@
             --transition: all 0.3s ease;
         }
         
+        /* Font Vivaldi */
+        @font-face {
+            font-family: 'Vivaldi';
+            src: url('https://fonts.cdnfonts.com/s/14195/Vivaldi.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        /* Fallback jika Vivaldi tidak tersedia */
+        @font-face {
+            font-family: 'Vivaldi';
+            src: local('Vivaldi'), local('Brush Script MT'), local('Lucida Calligraphy');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -56,12 +73,12 @@
         }
         
         .logo {
-            font-size: 2.2rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: normal;
             color: var(--primary);
             text-decoration: none;
-            font-family: 'Playfair Display', serif;
-            letter-spacing: 1px;
+            font-family: 'Vivaldi', cursive, serif;
+            letter-spacing: 2px;
         }
         
         .nav-links {
@@ -184,32 +201,14 @@
         
         /* Sejarah Parfum */
         .history-content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-        
-        .history-text {
-            flex: 1;
+            text-align: justify;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .history-text p {
             margin-bottom: 20px;
             color: var(--black);
-        }
-        
-        .history-image {
-            flex: 1;
-            height: 400px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-        
-        .history-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
         
         /* Zodiak Finder */
@@ -500,17 +499,12 @@
                 font-size: 2.5rem;
             }
             
-            .history-content {
-                flex-direction: column;
-            }
-            
-            .history-image {
-                order: -1;
-                height: 250px;
-            }
-            
             .scent-controls {
                 flex-direction: column;
+            }
+            
+            .logo {
+                font-size: 2rem;
             }
         }
         
@@ -540,7 +534,7 @@
     <section class="welcome-section" id="welcome">
         <div class="container">
             <div class="welcome-content">
-                <h2>Selamat Datang di Scentence</h2>
+                <h2>Selamat Datang di <span style="font-family: 'Vivaldi', cursive; color: var(--primary);">Scentence</span></h2>
                 <p>Masukkan nama Anda untuk pengalaman yang lebih personal</p>
                 <div class="welcome-form">
                     <input type="text" id="user-name" placeholder="Masukkan nama Anda">
@@ -555,7 +549,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1 id="greeting">Temukan Aroma yang Mencerminkan Dirimu</h1>
-                <p>Jelajahi koleksi parfum eksklusif Scentence dengan beragam aroma yang akan meninggalkan kesan tak terlupakan</p>
+                <p>Jelajahi koleksi parfum eksklusif <span style="font-family: 'Vivaldi', cursive;">Scentence</span> dengan beragam aroma yang akan meninggalkan kesan tak terlupakan</p>
                 <a href="#history" class="btn">Pelajari Sejarah Parfum</a>
             </div>
         </div>
@@ -575,9 +569,6 @@
                     <p>Peradaban Mesir Kuno adalah yang pertama kali mengembangkan teknik ekstraksi minyak wangi dari bunga dan rempah-rempah. Mereka menggunakan parfum dalam ritual keagamaan, pengobatan, dan sebagai simbol status.</p>
                     <p>Pada abad ke-17, parfum menjadi populer di Eropa, terutama di Prancis. Kota Grasse di Prancis Selatan menjadi pusat produksi parfum dunia berkat iklimnya yang ideal untuk menanam bunga-bunga wangi.</p>
                     <p>Di era modern, parfum telah berkembang menjadi industri seni yang kompleks, menggabungkan sains, seni, dan teknologi untuk menciptakan aroma yang tak terlupakan.</p>
-                </div>
-                <div class="history-image">
-                    <img src="https://images.unsplash.com/photo-1590736968-e0b9c8d79f57?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sejarah Parfum">
                 </div>
             </div>
         </div>
@@ -869,7 +860,7 @@
     <section id="simulator" class="hidden">
         <div class="container">
             <div class="section-title">
-                <h2>Simulator Aroma Scentence</h2>
+                <h2>Simulator Aroma <span style="font-family: 'Vivaldi', cursive;">Scentence</span></h2>
                 <p>Temukan kombinasi aroma yang sesuai dengan preferensi Anda</p>
             </div>
             
@@ -939,7 +930,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Scentence</h3>
+                    <h3 style="font-family: 'Vivaldi', cursive;">Scentence</h3>
                     <p>Temukan aroma yang mencerminkan kepribadian Anda dengan koleksi parfum eksklusif Scentence.</p>
                     <div class="social-links">
                         <a href="https://www.instagram.com/gregorius.f.c?igsh=NDd4eGdjcWR6amI0" target="_blank">IG</a>
@@ -964,7 +955,7 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 Scentence. Hak Cipta Dilindungi.</p>
+                <p>&copy; 2023 <span style="font-family: 'Vivaldi', cursive;">Scentence</span>. Hak Cipta Dilindungi.</p>
             </div>
         </div>
     </footer>
@@ -1138,15 +1129,25 @@
                 let description = '';
                 
                 if (baseNote === 'vanilla' && middleNote === 'rose' && topNote === 'citrus') {
-                    description = 'Kombinasi sempurna! Aroma citrus yang segar di awal, diikuti dengan keharuman mawar yang romantis, dan diakhiri dengan vanilla yang hangat dan manis. Cocok untuk acara santai maupun formal.';
+                    description = 'Kombinasi romantis! Aroma citrus yang menyegarkan di awal, diikuti dengan keharuman mawar yang elegan, dan diakhiri dengan vanilla yang hangat dan manis. Cocok untuk kencan malam.';
                 } else if (baseNote === 'sandalwood' && middleNote === 'jasmine' && topNote === 'bergamot') {
-                    description = 'Kombinasi yang elegan! Aroma bergamot yang cerah di awal, keharuman melati yang memikat, dan dasar kayu cendana yang hangat. Ideal untuk acara malam yang spesial.';
+                    description = 'Kombinasi yang sophisticated! Aroma bergamot yang cerah di awal, keharuman melati yang memikat, dan dasar kayu cendana yang hangat. Ideal untuk acara formal.';
                 } else if (baseNote === 'musk' && middleNote === 'lavender' && topNote === 'green-tea') {
                     description = 'Kombinasi yang menenangkan! Aroma teh hijau yang menyegarkan, dilanjutkan dengan lavender yang relaks, dan diakhiri dengan musk yang lembut. Sempurna untuk relaksasi sehari-hari.';
                 } else if (baseNote === 'amber' && middleNote === 'ylang' && topNote === 'ocean') {
                     description = 'Kombinasi yang eksotis! Aroma segar laut di awal, keharuman ylang-ylang yang tropis, dan dasar amber yang hangat dan misterius. Cocok untuk mereka yang menyukai petualangan.';
-                } else if (baseNote === 'oud' && middleNote === 'rose' && topNote === 'saffron') {
-                    description = 'Kombinasi mewah! Aroma saffron yang hangat di awal, diikuti dengan mawar yang elegan, dan diakhiri dengan oud yang dalam dan berkelas. Sempurna untuk acara spesial.';
+                } else if (baseNote === 'oud' && middleNote === 'tuberose' && topNote === 'saffron') {
+                    description = 'Kombinasi mewah! Aroma saffron yang hangat di awal, diikuti dengan tuberose yang intens, dan diakhiri dengan oud yang dalam dan berkelas. Sempurna untuk acara spesial.';
+                } else if (baseNote === 'vetiver' && middleNote === 'neroli' && topNote === 'lemon') {
+                    description = 'Kombinasi yang segar dan earthy! Aroma lemon yang cerah di awal, diikuti dengan neroli yang elegan, dan diakhiri dengan vetiver yang earthy dan maskulin. Cocok untuk aktivitas outdoor.';
+                } else if (baseNote === 'patchouli' && middleNote === 'geranium' && topNote === 'blackcurrant') {
+                    description = 'Kombinasi yang unik! Aroma blackcurrant yang fruity di awal, diikuti dengan geranium yang herbal, dan diakhiri dengan patchouli yang earthy dan kompleks. Untuk mereka yang berani berbeda.';
+                } else if (baseNote === 'cedarwood' && middleNote === 'lily' && topNote === 'apple') {
+                    description = 'Kombinasi yang fresh dan clean! Aroma apel yang segar di awal, diikuti dengan lily yang elegan, dan diakhiri dengan cedarwood yang hangat dan woody. Sempurna untuk penggunaan sehari-hari.';
+                } else if (baseNote === 'leather' && middleNote === 'orchid' && topNote === 'pepper') {
+                    description = 'Kombinasi yang bold dan maskulin! Aroma pepper yang spicy di awal, diikuti dengan orchid yang eksotis, dan diakhiri dengan leather yang kuat dan berkarakter. Untuk penampilan yang percaya diri.';
+                } else if (baseNote === 'tonka-bean' && middleNote === 'peony' && topNote === 'pear') {
+                    description = 'Kombinasi yang feminin dan manis! Aroma pear yang juicy di awal, diikuti dengan peony yang lembut, dan diakhiri dengan tonka bean yang creamy dan vanillic. Cocok untuk suasana romantis.';
                 } else {
                     description = `Kombinasi menarik! Aroma ${getNoteName(topNote)} yang menyegarkan di awal, diikuti dengan ${getNoteName(middleNote)} yang memikat, dan diakhiri dengan ${getNoteName(baseNote)} yang hangat. Kombinasi ini menciptakan pengalaman aroma yang unik dan personal.`;
                 }
